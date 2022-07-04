@@ -4,8 +4,9 @@ from mysql.connector import Error
 from .cluster_manager import opensearch_cluster_connection, db_connection
 
 
-def get_table_from_opensearch():
-    return wr.opensearch.search_by_sql(client=opensearch_cluster_connection(), sql_query="")
+def get_table_from_opensearch(sql_query):
+    return wr.opensearch.search_by_sql(client=opensearch_cluster_connection(),
+                                       sql_query=sql_query)
 
 
 def write_timestamp_in_db():
